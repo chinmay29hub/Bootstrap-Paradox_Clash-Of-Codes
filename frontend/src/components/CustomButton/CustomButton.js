@@ -1,5 +1,5 @@
 import Button from 'react-bootstrap/Button'
-import './CustomButton.css';
+import './CustomButton.css'
 function CustomButton() {
     return (
         <Button
@@ -10,4 +10,4 @@ function CustomButton() {
     );
 }
 
-export default CustomButton;
+export default CustomButton

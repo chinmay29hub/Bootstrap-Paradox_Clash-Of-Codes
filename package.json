@@ -6,13 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "cd frontend && npm start",
-    "backend": "cd backend && npm start",
-    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
-    "build": "cd frontend && npm run build && cp -R build ../backend/"
+    "backend": "cd backend && node index.js",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "cors": "^2.8.5"
   }
 }

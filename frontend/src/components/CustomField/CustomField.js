@@ -1,5 +1,5 @@
 import { FormLabel, FormControl } from 'react-bootstrap'
-import './CustomField.css';
+import './CustomField.css'
 function CustomField({ label, type, placeholder, pattern, min, required }) {
     return (
         <>
@@ -7,16 +7,24 @@ function CustomField({ label, type, placeholder, pattern, min, required }) {
                 className="label">
                 {label}
             </FormLabel>
-            <FormControl
-                className="control"
-                type={type}
-                placeholder={placeholder}
-                pattern={pattern || null}
-                name={label}
-                min={min}
-                requried={required} />
+            {required ?
+                <FormControl
+                    className="control"
+                    type={type}
+                    placeholder={placeholder}
+                    pattern={pattern || null}
+                    name={label}
+                    min={min}
+                    required /> :
+                <FormControl
+                    className="control"
+                    type={type}
+                    placeholder={placeholder}
+                    pattern={pattern || null}
+                    name={label}
+                    min={min} />}
         </>
-    );
+    )
 }
 
-export default CustomField;
+export default CustomField

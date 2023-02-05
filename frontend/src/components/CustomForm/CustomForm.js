@@ -1,50 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react'
 import { Form, FormGroup } from 'react-bootstrap'
 import CustomField from '../CustomField/CustomField'
 import CustomButton from '../CustomButton/CustomButton'
 import '../CustomButton/CustomButton'
-import './CustomForm.css';
-function CustomForm() {
-    const [formData, setFormData] = useState([]);
-
+import './CustomForm.css'
+function CustomForm({ formFields, getFormData }) {
     const handleSubmit = (e) => {
-        e.preventDefault();
-        Object.entries(e.target.elements).map(([key, entry]) => {
-            if (entry.type !== "submit")
-                setFormData([...formData, { [entry.name]: entry.value }])
+        e.preventDefault()
+        const data = {}
+        Object.entries(e.target.elements).forEach((entry) => {
+            if (entry[1].type !== "submit" && entry[1].value)
+                data[entry[1].name] = entry[1].value
         })
-    };
-
-    const fields = {
-        "Name": {
-            type: "text",
-            placeholder: "Eg. John Doe",
-            pattern: "^[a-zA-Z ]+",
-            required: "true"
-        },
-        "Roll Number": {
-            type: "number",
-            placeholder: "Eg. 26",
-            min: 1,
-            required: "true"
-        },
-        "E-Mail ID": {
-            type: "email",
-            placeholder: "Eg. johndoe123@gmail.com",
-            required: "true"
-        },
-        "Phone Number": {
-            type: "tel",
-            placeholder: "Eg. 9876543210",
-            pattern: "^[0-9]{10}$",
-            required: "false"
-        }
+        getFormData(data)
     }
+
     return (
         <Form className="form" onSubmit={handleSubmit}>
             <FormGroup className="formGroup">
                 {
-                    Object.entries(fields).map(([label, attr], index) => {
+                    Object.entries(formFields).map(([label, attr], index) => {
                         return <CustomField
                             key={label + index}
                             label={label}
@@ -52,13 +27,14 @@ function CustomForm() {
                             placeholder={attr.placeholder}
                             pattern={attr.pattern}
                             required={attr.required}
-                            min={attr.min} />
+                            min={attr.min}
+                        />
                     })
                 }
             </FormGroup>
             <CustomButton />
         </Form>
-    );
+    )
 }
 
-export default CustomForm;
+export default CustomForm
