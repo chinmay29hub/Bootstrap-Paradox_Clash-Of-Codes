@@ -9,14 +9,14 @@ app.use(express.json())
 app.use(cors(corsOptions))
 const port = process.env.PORT || 5000
 const connectToDB = require('./routes/connect')
-const read = require('./routes/read')
+// const read = require('./routes/read')
 const insert = require('./routes/insert')
 
 connectToDB().then(collection => {
-  const readRoute = read(collection)
-  app.use('/', readRoute);
-  // const insertRoute = insert(collection)
-  // app.use('/', insertRoute);
+  // const readRoute = read(collection)
+  // app.use('/', readRoute);
+  const insertRoute = insert(collection)
+  app.use('/', insertRoute);
 }).catch(error => {
   console.error(`Error connecting to database: ${error}`)
 })

@@ -6,9 +6,8 @@ const connectToDB = async () => {
     const client = new MongoClient(uri, { useNewUrlParser: true })
     try {
         await client.connect()
-        const db = client.db('crudops')
         console.log('Successfully connected to database.')
-        return db.collection('crud')
+        return client.db('crudops').collection('crud')
     } catch (error) {
         console.error('Error connecting to database: ', error)
     }

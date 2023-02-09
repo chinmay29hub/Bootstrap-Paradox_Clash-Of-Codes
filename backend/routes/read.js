@@ -6,7 +6,6 @@ module.exports = function (collection) {
     try {
       const records = await collection.find().toArray()
       res.status(200).send(records)
-      // res.json(records)
       console.log('Data received.')
     } catch (error) {
       res.status(500).send('Error fetching records: ', error)
