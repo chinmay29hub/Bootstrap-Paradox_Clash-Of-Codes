@@ -1,16 +1,16 @@
 const express = require('express')
-const app = express()
+const router = express.Router();
 
-const read = () => {
-  app.get('/', async (req, res) => {
+module.exports = function (collection) {
+  router.get('/read', async (req, res) => {
     try {
       const records = await collection.find().toArray()
-      res.json(records)
+      res.status(200).send(records)
+      // res.json(records)
       console.log('Data received.')
     } catch (error) {
       res.status(500).send('Error fetching records: ', error)
     }
   })
+  return router
 }
-
-module.exports = read

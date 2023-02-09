@@ -7,7 +7,7 @@ function CustomTable({ headers }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await axios.get('http://localhost:5000')
+                const result = await axios.get('http://localhost:5000/read')
                 setData(result)
             } catch (error) {
                 console.log(`Error fetching data: ${error}`)
@@ -33,7 +33,6 @@ function CustomTable({ headers }) {
                             return <CustomTableRow key={rowIndex} rowIndex={rowIndex} row={row} />
                         }) : null
                     }
-                    {/* <CustomTableRow /> */}
                 </tbody>
             </table>
         </div>

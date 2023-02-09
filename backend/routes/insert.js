@@ -1,8 +1,8 @@
 const express = require('express')
-const app = express()
+const router = express.Router()
 
-const insert = collection => {
-  app.post('/', async (req, res) => {
+module.exports = function (collection) {
+  router.post('/insert', async (req, res) => {
     const existingEmail = await collection.findOne({ 'E-Mail ID': req.body['E-Mail ID'] })
     const existingRollNo = await collection.findOne({ 'Roll Number': req.body['Roll Number'] })
     const existingPhoneNo = await collection.findOne({ 'Phone Number': req.body['Phone Number'] })
@@ -14,6 +14,6 @@ const insert = collection => {
     }
     res.send('Data received and processed.')
   })
+  return router;
 }
 
-module.exports = insert

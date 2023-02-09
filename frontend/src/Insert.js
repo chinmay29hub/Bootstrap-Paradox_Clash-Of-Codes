@@ -35,7 +35,7 @@ function Insert() {
   useEffect(() => {
     const onReceivedFormData = () => {
       if (Object.keys(formData).length !== 0) {
-        axios.post('http://localhost:5000', formData)
+        axios.post('http://localhost:5000/insert', formData)
           .then(response => {
             console.log(response.data)
           })
