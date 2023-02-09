@@ -1,34 +1,34 @@
 import { Container, Row } from 'react-bootstrap'
 import CustomForm from './components/CustomForm/CustomForm'
-import './App.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-function App() {
+import './Insert.css'
+function Insert() {
   const [formData, setFormData] = useState({})
   const receiveFormData = data => setFormData(data)
   const formFields = {
-    "Name": {
-      type: "text",
-      placeholder: "Eg. John Doe",
-      pattern: "^[a-zA-Z ]+",
-      required: "true"
+    'Name': {
+      type: 'text',
+      placeholder: 'Eg. John Doe',
+      pattern: '^[a-zA-Z ]+',
+      required: true
     },
-    "Roll Number": {
-      type: "number",
-      placeholder: "Eg. 26",
+    'Roll Number': {
+      type: 'number',
+      placeholder: 'Eg. 26',
       min: 1,
-      required: "true"
+      required: true
     },
-    "E-Mail ID": {
-      type: "email",
-      placeholder: "Eg. johndoe123@gmail.com",
-      required: "false"
+    'E-Mail ID': {
+      type: 'email',
+      placeholder: 'Eg. johndoe123@gmail.com',
+      required: true
     },
-    "Phone Number": {
-      type: "tel",
-      placeholder: "Eg. 9876543210",
-      pattern: "^[0-9]{10}$",
-      required: "true"
+    'Phone Number': {
+      type: 'tel',
+      placeholder: 'Eg. 9876543210',
+      pattern: '^[0-9]{10}$',
+      required: true
     }
   }
 
@@ -50,13 +50,13 @@ function App() {
   return (
     <Container
       fluid
-      className="cont">
+      className='cont'>
       <Row
-        className="form-row">
+        className='form-row'>
         <CustomForm formFields={formFields} getFormData={receiveFormData} />
       </Row>
     </Container>
   )
 }
 
-export default App
+export default Insert

@@ -4,3 +4,9 @@
     padding: 1rem;
     box-shadow: 0 0 1.5em #e7e7e7;
 }
+
+.submit {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+}

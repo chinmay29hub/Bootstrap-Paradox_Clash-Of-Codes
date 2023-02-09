@@ -1,0 +1,26 @@
+.custom-table-div {
+    border: 0.01rem solid rgb(212, 212, 212);
+    border-radius: 0.5rem;
+    padding: 0;
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    margin: 0;
+}
+
+.custom-table td,
+.custom-table th {
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    border: none;
+}
+
+.custom-table thead tr {
+    background-color: rgb(244, 244, 244);
+    border: none;
+}
+
+.custom-table th {
+    font-weight: 500;
+}
