@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const corsOptions = {
-  origin: 'https://mern-crud-app-altajvirani.netlify.app',
+  origin: 'http://localhost:3000',
   optionsSuccessStatus: 200
 }
 app.use(express.json())
