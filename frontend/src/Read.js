@@ -7,7 +7,7 @@ function Read() {
     <>
       <Container fluid className='cont'>
         <Row className='row'>
-          <CustomTable headers={columns} />
+          <CustomTable headers={columns} editable={true} />
         </Row>
       </Container>
     </>

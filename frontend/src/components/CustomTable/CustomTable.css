@@ -1,5 +1,5 @@
 .custom-table-div {
-    border: 0.01rem solid rgb(212, 212, 212);
+    border: 0.01rem solid rgb(196, 201, 209);
     border-radius: 0.5rem;
     padding: 0;
     overflow-x: auto;
@@ -17,7 +17,7 @@
 }
 
 .custom-table thead tr {
-    background-color: rgb(244, 244, 244);
+    background-color: rgb(240, 242, 245);
     border: none;
 }
 

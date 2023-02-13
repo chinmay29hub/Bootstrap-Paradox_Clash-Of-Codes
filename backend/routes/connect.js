@@ -1,16 +1,29 @@
-const MongoClient = require('mongodb').MongoClient
+const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+
 dotenv.config()
-const uri = process.env.ATLAS_URI
-const connectToDB = async () => {
-    const client = new MongoClient(uri, { useNewUrlParser: true })
-    try {
-        await client.connect()
-        console.log('Successfully connected to database.')
-        return client.db('crudops').collection('crud')
-    } catch (error) {
-        console.error('Error connecting to database: ', error)
-    }
+
+const connectToDB = () => {
+    return new Promise((resolve, reject) => {
+        mongoose.set('strictQuery', true);
+        mongoose.connect(process.env.ATLAS_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            dbName: 'crudops'
+        })
+        const db = mongoose.connection
+
+        db.once('open', () => {
+            console.log('Successfully connected to database.')
+            const collection = db.collection('crud')
+            resolve(collection)
+        })
+
+        db.on('error', (error) => {
+            console.error('Error connecting to database: ', error)
+            reject(error)
+        })
+    })
 }
 
 module.exports = connectToDB

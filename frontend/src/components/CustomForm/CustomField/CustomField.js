@@ -3,10 +3,7 @@ import './CustomField.css'
 function CustomField({ label, type, placeholder, pattern, min, required, autofocus }) {
     return (
         <>
-            <FormLabel
-                className='label'>
-                {label}
-            </FormLabel>
+            <FormLabel className='label'>{label}</FormLabel>
             <FormControl
                 className='control'
                 type={type}

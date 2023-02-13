@@ -1,8 +1,20 @@
 tr {
-    border-top: 0.01rem solid rgb(212, 212, 212);
+    border-top: 0.01rem solid rgb(196, 201, 209);
 }
 
 tr:hover {
-    background-color: rgb(244, 244, 244);
-    cursor: pointer;
+    background-color: rgb(240, 242, 245);
+}
+
+.edit-delete-column {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+
+button {
+    background-color: white;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    border: 0.02rem solid rgb(180, 185, 191);
 }
