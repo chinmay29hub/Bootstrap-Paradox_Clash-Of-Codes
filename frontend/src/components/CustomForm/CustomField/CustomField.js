@@ -1,6 +1,6 @@
 import { FormLabel, FormControl } from 'react-bootstrap'
 import './CustomField.css'
-function CustomField({ label, type, placeholder, pattern, min, required, autofocus }) {
+function CustomField({ label, type, placeholder, pattern, min, required, defaultValue, autofocus }) {
     return (
         <>
             <FormLabel className='label'>{label}</FormLabel>
@@ -12,6 +12,7 @@ function CustomField({ label, type, placeholder, pattern, min, required, autofoc
                 name={label}
                 min={min}
                 required={required}
+                defaultValue={defaultValue}
                 autoFocus={autofocus} />
         </>
     )

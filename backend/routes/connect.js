@@ -14,7 +14,7 @@ const connectToDB = () => {
         const db = mongoose.connection
 
         db.once('open', () => {
-            console.log('Successfully connected to database.')
+            console.log('Successfully connected to database.') 
             const collection = db.collection('crud')
             resolve(collection)
         })

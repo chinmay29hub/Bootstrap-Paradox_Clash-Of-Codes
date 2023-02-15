@@ -3,9 +3,8 @@ import CustomForm from './components/CustomForm/CustomForm'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './Insert.css'
-function Insert() {
+function Insert({ prevData, onClickSubmit }) {
   const [formData, setFormData] = useState({})
-  const receiveFormData = data => setFormData(data)
   const formFields = {
     'Name': {
       type: 'text',
@@ -31,29 +30,32 @@ function Insert() {
       required: true
     }
   }
-
+  const receiveFormData = data => setFormData(data)
   useEffect(() => {
-    const onReceivedFormData = () => {
+    const onReceivedFormData = async () => {
       if (Object.keys(formData).length !== 0) {
-        axios.post('http://localhost:5000/insert', formData)
-          .then(response => {
-            console.log(response.data)
-          })
-          .catch(error => {
-            console.error(error)
-          })
+        try {
+          const response = Object.keys(prevData).length === 0 ?
+            await axios.post('http://localhost:5000/insert', formData) :
+            await axios.put(`http://localhost:5000/update/${prevData['_id']}`, formData)
+          console.log(`Record inserted successfully. ${response}`)
+          onClickSubmit(null, false)
+        } catch (error) {
+          console.error(`Error inserting record: ${error}`)
+        }
       }
     }
     onReceivedFormData()
-  }, [formData])
+  }, [formData, prevData, onClickSubmit])
 
   return (
-    <Container
-      fluid
-      className='cont'>
+    <Container fluid className='cont'>
       <Row
         className='form-row'>
-        <CustomForm formFields={formFields} getFormData={receiveFormData} />
+        <CustomForm
+          formFields={formFields}
+          getFormData={receiveFormData}
+          prevData={prevData} />
       </Row>
     </Container>
   )

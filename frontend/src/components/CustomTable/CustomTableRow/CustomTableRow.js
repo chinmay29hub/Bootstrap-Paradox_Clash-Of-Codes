@@ -1,5 +1,5 @@
 import './CustomTableRow.css'
-function CustomTableRow({ rowIndex, row, editable, handleDelete }) {
+function CustomTableRow({ rowIndex, row, editable, onClickEdit, handleDelete }) {
     return (
         <tr
             key={rowIndex}
@@ -8,9 +8,11 @@ function CustomTableRow({ rowIndex, row, editable, handleDelete }) {
             {Object.keys(row).map((col, colIndex) => {
                 if (colIndex !== 0)
                     return <td key={colIndex}>{row[col]}</td>
+                return null
             })}
             {editable && <td className='edit-delete-column'>
-                <button>Edit</button>
+                <button
+                    onClick={() => { onClickEdit(row, true) }}>Edit</button>
                 <button
                     style={{ marginLeft: '0.5rem' }}
                     onClick={() => { handleDelete(row['_id']) }}>Delete</button>

@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^7.6.0",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "react-toastify": "^9.1.1"
   }
 }

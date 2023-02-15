@@ -1,7 +1,7 @@
 import { Form, FormGroup, Button } from 'react-bootstrap'
 import CustomField from './CustomField/CustomField'
 import './CustomForm.css'
-function CustomForm({ formFields, getFormData }) {
+function CustomForm({ formFields, getFormData, prevData}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         const data = {}
@@ -24,8 +24,9 @@ function CustomForm({ formFields, getFormData }) {
                         pattern={attr.pattern}
                         min={attr.min}
                         required={attr.required}
-                        autofocus={index === 0 ? true : false}
-                    />
+                        defaultValue={prevData[label]}
+                        readOnly={false}
+                        autofocus={index === 0 ? true : false} />
                 })}
             </FormGroup>
             <Button

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import CustomTableRow from './CustomTableRow/CustomTableRow'
 import './CustomTable.css'
-function CustomTable({ headers, editable }) {
+function CustomTable({ headers, editable, onClickEdit }) {
     const [data, setData] = useState({})
     useEffect(() => {
         const fetchData = async () => {
@@ -40,12 +40,13 @@ function CustomTable({ headers, editable }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {(Object.keys(data).length) && data.data.map((row, rowIndex) => {
+                    {Object.keys(data).length !== 0 && data.data.map((row, rowIndex) => {
                         return <CustomTableRow
                             key={rowIndex}
                             rowIndex={rowIndex}
                             row={row}
                             editable={editable}
+                            onClickEdit={onClickEdit}
                             handleDelete={handleDelete} />
                     })}
                 </tbody>

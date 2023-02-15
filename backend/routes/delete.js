@@ -5,7 +5,9 @@ const mongoose = require('mongoose')
 module.exports = function (collection) {
     router.delete('/delete/:id', async (req, res) => {
         try {
-            const result = await collection.deleteOne({ _id: mongoose.Types.ObjectId(req.params.id) })
+            const result = await collection.deleteOne({
+                _id: mongoose.Types.ObjectId(req.params.id)
+            })
             if (!result.deletedCount)
                 return res.status(404).send({ error: 'Record not found.' })
             return res.send({ message: 'Record deleted successfully.' })

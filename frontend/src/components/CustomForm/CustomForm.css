@@ -1,9 +1,10 @@
 .form {
+    align-self: center;
     border: 0.01rem solid rgb(222, 222, 222);
     border-radius: 0.5rem;
     width: 20rem;
     padding: 1rem;
-    box-shadow: 0 0 2em #eeeeee;
+    box-shadow: 0 0 2em #eaeaea;
 }
 
 .submit {
