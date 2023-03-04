@@ -30,6 +30,18 @@ export const UserSchema = new mongoose.Schema({
     },
     profile : {
         type : String
+    },
+    city : {
+        type : String,
+        required : true
+    },
+    latitude : {
+        required : true,
+        type : String
+    },
+    longitude : {
+        required : true,
+        type : String
     }
 })
 

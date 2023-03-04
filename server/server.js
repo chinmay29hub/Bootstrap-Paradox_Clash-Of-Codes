@@ -8,6 +8,7 @@ import router from "./router/route.js"
 // const express = require('express');
 // const cors = require('cors');
 // const morgan = require('morgan');
+import unirest from "unirest"
 
 
 const app = express()
@@ -27,6 +28,7 @@ const port = process.env.PORT || 4000
 // http request
 app.get("/", (req, res) => {
     res.status(201).json("Home get request")
+
 })
 
 // routes

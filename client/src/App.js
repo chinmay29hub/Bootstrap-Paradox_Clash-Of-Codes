@@ -8,6 +8,7 @@ import Recovery from './components/Recovery'
 import Reset from './components/Reset'
 import PageNotFound from './components/PageNotFound'
 import { AuthorizeUser, ProtectRoute } from './middleware/auth'
+import Map from './components/Map'
 
 // root routes
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
     {
         path : "*",
         element : <PageNotFound />
+    },
+    {
+        path : "/map",
+        element : <Map />
     }
 ])
 
