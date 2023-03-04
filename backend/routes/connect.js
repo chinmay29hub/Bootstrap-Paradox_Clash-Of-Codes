@@ -9,14 +9,16 @@ const connectToDB = () => {
         mongoose.connect(process.env.ATLAS_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            dbName: 'crudops'
+            dbName: 'sample'
         })
         const db = mongoose.connection
 
         db.once('open', () => {
-            console.log('Successfully connected to database.') 
-            const collection = db.collection('crud')
-            resolve(collection)
+            console.log('Successfully connected to database.')
+            const users = db.collection('users')
+            const tripsAndEvents = db.collection('tripsAndEvents')
+            const interestWise = db.collection('interestWise')
+            resolve([users, tripsAndEvents, interestWise])
         })
 
         db.on('error', (error) => {

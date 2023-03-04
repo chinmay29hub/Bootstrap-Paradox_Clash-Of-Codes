@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'Orbitron-Regular';
+    src: url('./fonts/orbitron-regular.woff');
+}
+
+@font-face {
+    font-family: 'Orbitron-Bold';
+    src: url('./fonts/orbitron-bold.woff');
+}
+
+@font-face {
+    font-family: 'Orbitron-Medium';
+    src: url('./fonts/orbitron-medium.woff');
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    margin-top: 0.75rem;
+    margin-bottom: 0.6rem;
+}
+
+.upper-nav {
+    width: calc(100vw - 1rem);
+    min-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: #F1F2F6;
+    padding: 1.2rem;
+    border: 0.1rem solid #C0C5CF;
+}
+
+input,
+.search-btn,
+.filter-btn {
+    border: 0.1rem solid #C0C5CF;
+    border-radius: 0.8rem;
+    color: #798197;
+}
+
+.search-btn-icon {
+    width: 1.1rem;
+}
+
+
+input {
+    font-family: 'Orbitron-Medium';
+    font-size: 1rem;
+    margin: 0rem 0.8rem 0rem 0.8rem;
+    padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+    width: 100%;
+    max-width: 16rem;
+    min-width: none;
+}
+
+::placeholder {
+    color: #798197
+}
+
+input:focus {
+    outline: none;
+}
+
+.filter-btn,
+.search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: auto;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+}
+
+.search-btn-icon,
+.filter-btn-icon {
+    width: 1.1rem;
+}
+
+.drp-dwn-radio {
+    width: max-content;
+}

@@ -12,12 +12,6 @@ function Insert({ prevData, onClickSubmit }) {
       pattern: '^[a-zA-Z ]+',
       required: true
     },
-    'Roll Number': {
-      type: 'number',
-      placeholder: 'Eg. 26',
-      min: 1,
-      required: true
-    },
     'E-Mail ID': {
       type: 'email',
       placeholder: 'Eg. johndoe123@gmail.com',
@@ -28,7 +22,19 @@ function Insert({ prevData, onClickSubmit }) {
       placeholder: 'Eg. 9876543210',
       pattern: '^[0-9]{10}$',
       required: true
-    }
+    },
+    'Interests': {
+      type: 'text',
+      placeholder: 'Eg. Trekking',
+      required: true
+    },
+    'Location': {
+      type: 'text',
+      placeholder: 'Eg. New York',
+      pattern: '^[a-zA-Z ]+',
+      required: true
+    },
+
   }
   const receiveFormData = data => setFormData(data)
   useEffect(() => {

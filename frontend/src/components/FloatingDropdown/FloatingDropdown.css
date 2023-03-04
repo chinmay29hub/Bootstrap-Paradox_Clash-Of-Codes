@@ -1,0 +1,85 @@
+.floating-dropdown {
+    position: absolute;
+    left: 37.2%;
+    width: 24.5rem;
+    overflow: hidden;
+    display: block;
+    background-color: #ffffff;
+    margin-top: 5.5rem;
+    padding: 1.2rem 1.2rem 1.6rem 1.2rem;
+    border: 0.1rem solid #C0C5CF;
+    border-radius: 0.8rem;
+}
+
+.floating-dropdown p,
+.floating-dropdown label {
+    font-family: 'Orbitron-Medium';
+    color: #798197;
+    font-size: 1rem;
+}
+
+.drp-dwn-cont span {
+    font-family: 'Orbitron-Regular';
+    color: #798197;
+    font-size: 1rem;
+}
+
+.drp-dwn-cont {
+    display: block;
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 0.8rem;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.drp-dwn-cont input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.3rem;
+    width: 1.3rem;
+    background-color: #eee;
+}
+
+.drp-dwn-cont:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.drp-dwn-cont input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.drp-dwn-cont input:checked~.checkmark:after {
+    display: block;
+}
+
+.drp-dwn-cont .checkmark:after {
+    top: 14%;
+    left: 30%;
+    width: 0.5rem;
+    height: 0.8rem;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
