@@ -13,6 +13,7 @@ import Spline from '@splinetool/react-spline';
 import Home from './components/Home'
 import MyForm from './components/MyForm'
 import Face from './components/Face'
+// import Temp from './components/Temp'
 
 // root routes
 
@@ -56,10 +57,6 @@ const router = createBrowserRouter([
     {
         path : "/face",
         element : <Face />
-    },
-    {
-        path : "/chat",
-        element : <MyForm />
     }
 ])
 
