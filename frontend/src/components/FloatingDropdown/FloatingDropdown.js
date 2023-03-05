@@ -4,7 +4,7 @@ export default function FloatingDropdown({ radioOpt, setRadioOpt }) {
         <>
             <div className='floating-dropdown'>
                 <p>Search by</p>
-                <label class="drp-dwn-cont">
+                <label className="drp-dwn-cont">
                     <span>Interests</span>
                     <input
                         type="checkbox"
@@ -16,9 +16,9 @@ export default function FloatingDropdown({ radioOpt, setRadioOpt }) {
                                 setRadioOpt(radioOpt.filter((option) => option !== e.target.name));
                             }
                         }} />
-                    <span class="checkmark"></span>
+                    <span className="checkmark"></span>
                 </label>
-                <label class="drp-dwn-cont">
+                <label className="drp-dwn-cont">
                     <span>Destination</span>
                     <input
                         type="checkbox"
@@ -32,7 +32,7 @@ export default function FloatingDropdown({ radioOpt, setRadioOpt }) {
                                 console.log(radioOpt)
                             }
                         }} />
-                    <span class="checkmark"></span>
+                    <span className="checkmark"></span>
                 </label>
             </div>
         </>

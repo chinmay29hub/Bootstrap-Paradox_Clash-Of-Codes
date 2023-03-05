@@ -5,10 +5,13 @@ import FloatingDropdown from './components/FloatingDropdown/FloatingDropdown';
 import './App.css'
 import { useRef, useState, useEffect } from 'react'
 import axios from 'axios'
+import TripEventCard from './components/TripEventCard/TripEventCard';
+// import TripEventCard from './components/TripEventCard/TripEventCard';
 function App() {
     const [showDrpDwn, setShowDrpDwn] = useState(false)
     const locRef = useRef(null);
     const [loc, setLoc] = useState("")
+    const [tripAndEventData, setTripAndEventData] = useState([])
     const [radioOpt, setRadioOpt] = useState([])
 
     const toTitleCase = str => str.replace(/(^\w|\s\w)(\S*)/g, (_, m1, m2) => m1.toLocaleUpperCase() + m2.toLocaleLowerCase())
@@ -31,9 +34,10 @@ function App() {
         const fetchData = async () => {
             try {
                 const result = await axios.get('http://localhost:5000/read')
-                console.log(result.data)
+                // console.log(result.data)
+                setTripAndEventData(result.data)
             } catch (error) {
-                console.log(`Error fetching data: ${error}`)
+                console.error(`Error fetching data: ${error}`)
             }
         }
         fetchData()
@@ -63,7 +67,11 @@ function App() {
                             border: "0.1rem solid #C0C5CF",
                             height: "100%"
                         }}>
-
+                        {tripAndEventData && function () {
+                            console.log(tripAndEventData["events"])
+                        }()
+                            /* <TripEventCard tripAndEventData={tripAndEventData} />  */
+                        }
                     </Col>
                     <Col xs={7} sm={7} md={7} lg={7} xl={7}
                         style={{
