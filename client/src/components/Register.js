@@ -11,7 +11,7 @@ import axios from 'axios'
 // import { Geocode } from 'opencage-api-client';
 
 export default function Register() {
-    // let hell = []
+    let hell = []
 
     const navigate = useNavigate()
     const [file, setFile] = useState()
@@ -56,15 +56,17 @@ export default function Register() {
             }
         ).catch(e => console.error(e))
 }, [latitude, longitude]);
+
+
     
     const formik = useFormik({
         initialValues : {
             email : "abc@gmail.com",
             username : "example123",
             password : "admin@123",
-            city : "",
-            latitude : "",
-            longitude : ""
+            city : city,
+            latitude : latitude,
+            longitude : longitude
         },
         validate : registerValidation,
         validateOnBlur : false,
@@ -118,9 +120,9 @@ export default function Register() {
                         <input {...formik.getFieldProps("email")} className={styles.textbox} type="email" placeholder='Email*' />
                         <input {...formik.getFieldProps("username")} className={styles.textbox} type="text" placeholder='Username*' />
                         <input {...formik.getFieldProps("password")} className={styles.textbox} type="password" placeholder='Password*' />
-                        <input {...formik.getFieldProps("city")} className={styles.textbox} type="text" placeholder='City*' value={city} disabled />
-                        <input {...formik.getFieldProps("latitude")} className={styles.textbox} type="text" placeholder='Latitude*' value={latitude} disabled />
-                        <input {...formik.getFieldProps("longitude")} className={styles.textbox} type="text" placeholder='Longitude*' value={longitude} disabled />
+                        <input {...formik.getFieldProps("city")} className={styles.textbox} type="text" placeholder='City*' disabled />
+                        <input {...formik.getFieldProps("latitude")} className={styles.textbox} type="text" placeholder='Latitude*' disabled />
+                        <input {...formik.getFieldProps("longitude")} className={styles.textbox} type="text" placeholder='Longitude*' disabled />
                         <button className={styles.btn} type='submit'>Register!</button>
                     </div>
 

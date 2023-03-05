@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Routes, Router, Route } from "react-router-dom"
 import Username from './components/Username'
 import Password from './components/Password'
 import Register from './components/Register'
@@ -9,6 +9,10 @@ import Reset from './components/Reset'
 import PageNotFound from './components/PageNotFound'
 import { AuthorizeUser, ProtectRoute } from './middleware/auth'
 import Map from './components/Map'
+import Spline from '@splinetool/react-spline';
+import Home from './components/Home'
+import MyForm from './components/MyForm'
+import Face from './components/Face'
 
 // root routes
 
@@ -44,6 +48,18 @@ const router = createBrowserRouter([
     {
         path : "/map",
         element : <Map />
+    },
+    {
+        path : "/home",
+        element : <Home />
+    },
+    {
+        path : "/face",
+        element : <Face />
+    },
+    {
+        path : "/chat",
+        element : <MyForm />
     }
 ])
 

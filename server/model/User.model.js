@@ -32,17 +32,17 @@ export const UserSchema = new mongoose.Schema({
         type : String
     },
     city : {
-        type : String,
-        required : true
+        type : String
+        // required : true
     },
     latitude : {
-        required : true,
+        // required : true,
         type : String
     },
     longitude : {
-        required : true,
+        // required : true,
         type : String
     }
 })
 
-export default mongoose.model.Users || mongoose.model("User", UserSchema)
+export default mongoose.model("User", UserSchema)
