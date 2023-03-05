@@ -51,7 +51,7 @@ export default function Register() {
     axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`)
         .then(
             response => {
-                // console.log(response.data) 
+                console.log(response.data.city)
                 setCity(response.data.city)
             }
         ).catch(e => console.error(e))
@@ -64,9 +64,9 @@ export default function Register() {
             email : "abc@gmail.com",
             username : "example123",
             password : "admin@123",
-            city : city,
-            latitude : latitude,
-            longitude : longitude
+            city : "Mumbai",
+            latitude : "19.120128",
+            longitude : "72.8891392"
         },
         validate : registerValidation,
         validateOnBlur : false,
@@ -96,9 +96,9 @@ export default function Register() {
 
   return (
     <div className='container mx-auto'>
-    {/* {
+    {
         console.log(latitude, longitude)
-    } */}
+    }
         <Toaster position='top-center' reverseOrder={false}></Toaster>
         <div className='flex justify-center items-center h-content'>
             <div className={styles.glass} style={{width : "45%", paddingTop : "3em"}}>
@@ -120,9 +120,9 @@ export default function Register() {
                         <input {...formik.getFieldProps("email")} className={styles.textbox} type="email" placeholder='Email*' />
                         <input {...formik.getFieldProps("username")} className={styles.textbox} type="text" placeholder='Username*' />
                         <input {...formik.getFieldProps("password")} className={styles.textbox} type="password" placeholder='Password*' />
-                        <input {...formik.getFieldProps("city")} className={styles.textbox} type="text" placeholder='City*' disabled />
-                        <input {...formik.getFieldProps("latitude")} className={styles.textbox} type="text" placeholder='Latitude*' disabled />
-                        <input {...formik.getFieldProps("longitude")} className={styles.textbox} type="text" placeholder='Longitude*' disabled />
+                        <input {...formik.getFieldProps("city")} value={city} className={styles.textbox} type="text" placeholder='City*' disabled />
+                        <input {...formik.getFieldProps("latitude")} value={latitude} className={styles.textbox} type="text" placeholder='Latitude*' disabled />
+                        <input {...formik.getFieldProps("longitude")} value={longitude} className={styles.textbox} type="text" placeholder='Longitude*' disabled />
                         <button className={styles.btn} type='submit'>Register!</button>
                     </div>
 
